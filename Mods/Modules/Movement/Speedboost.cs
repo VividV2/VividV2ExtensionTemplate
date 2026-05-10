@@ -5,7 +5,7 @@ using VividV2.Classes.Buttons;
 using VividV2.Core;
 using VividV2.Mods;
 
-namespace VividV2ExtensionTemplate.Mods.Modules
+namespace VividV2ExtensionTemplate.Mods.Modules.Movement
 {
     internal class Speedboost : Module
     {
