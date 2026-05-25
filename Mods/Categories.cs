@@ -8,7 +8,7 @@ namespace VividV2ExtensionTemplate.Mods
     internal class Categories
     {
         // to create categories just copy these and change the variable name and the string passed.
-        public static readonly Category Movement = Category.Register("Movement");
+        public static readonly Category Example = Category.Register("Example Category");
         public static readonly Category Visual = Category.Register("Visual");
     }
 }
