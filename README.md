@@ -177,9 +177,22 @@ KeybindVariable keybindVariable = new KeybindVariable("Keybind Variable", Keybin
 ```
 
 ```csharp
-// Works on BOTH hands.
+// Lets the user select a button type only.
+// The selected button will work on BOTH hands.
+//
 // Example:
-// Trigger pressed on either hand -> true
+// - Primary
+// - Secondary
+// - Grip
+// - Trigger
+//
+// Pressed will return true if the selected button
+// is pressed on either the left OR right hand.
+//
+// Example:
+// If Button = Trigger:
+// - Left Trigger pressed  -> true
+// - Right Trigger pressed -> true
 ```
 
 ---
@@ -191,10 +204,20 @@ KeybindVariable keybindVariable2 = new KeybindVariable("Keybind Variable 2", Key
 ```
 
 ```csharp
-// Requires specific hand + button match
+// Lets the user select BOTH a hand and a button.
+//
+// Example values:
+// - Left Trigger
+// - Right Grip
+// - Left Primary
+//
+// Pressed will only return true if the selected
+// hand AND button are pressed.
+//
 // Example:
-// Right Grip -> true
-// Left Grip -> false
+// If Value = Right Grip:
+// - Right Grip pressed -> true
+// - Left Grip pressed  -> false
 ```
 
 ---
@@ -206,6 +229,13 @@ KeybindVariable joystickVariable = new KeybindVariable("Joystick Variable", Keyb
 ```
 
 ```csharp
+// Lets the user select either the left or right joystick.
+//
+// The button parameter is ignored for this type.
+//
+// Use JoystickValue to get the Vector2 input.
+//
+// Example:
 // JoystickValue.x = horizontal movement
 // JoystickValue.y = vertical movement
 ```
