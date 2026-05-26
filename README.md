@@ -13,13 +13,18 @@ A template for creating extensions, modules, and player modules for **VividV2**.
 - Overview
 - Modules
   - Example Module
+  - Constructor
   - Variables
+    - Adding Variables
+    - Getting Variables
   - Variable Types
   - Keybind Variables
+  - Adding Variables (Registration)
   - Module Lifecycle
   - Useful Methods
 - Player Modules
 - Categories
+- Menu Animations
 - Extension Manifest
 
 ---
@@ -191,7 +196,6 @@ KeybindVariable keybindVariable2 = new KeybindVariable("Keybind Variable 2", Key
 // Right Grip -> true
 // Left Grip -> false
 ```
-```
 
 ---
 
@@ -208,7 +212,7 @@ KeybindVariable joystickVariable = new KeybindVariable("Joystick Variable", Keyb
 
 ---
 
-## Adding Variables
+## Adding Variables (Registration)
 
 ```csharp
 AddVariable(boolVariable);
@@ -304,10 +308,7 @@ public static readonly Category Visual = Category.Register("Visual");
 
 # Menu Animations
 
-<details>
-<summary>Expand MenuAnimation system</summary>
-
-VividV2 supports custom menu animations for open/close transitions.
+VividV2 supports custom menu animations for open and close transitions.
 
 ---
 
@@ -353,15 +354,13 @@ public class ExampleOpenAnimation : MenuAnimation
 
 ### Animation Notes
 
-- `AnimationPercentage` goes from 0 → 1
-- `target` represents the UI transform state
+- AnimationPercentage goes from 0 to 1
+- target represents the UI transform state
 - Modify scale, rotation, or position
-
-</details>
 
 ---
 
-# 📦 Extension Manifest
+# Extension Manifest
 
 ```csharp
 internal class Manifest : ExtensionManifest
