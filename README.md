@@ -12,15 +12,6 @@ A template for creating extensions, modules, and player modules for **VividV2**.
 
 - Overview
 - Modules
-  - Example Module
-  - Constructor
-  - Variables
-    - Adding Variables
-    - Getting Variables
-  - Variable Types
-  - Keybind Variables
-  - Module Lifecycle
-  - Useful Methods
 - Player Modules
 - Categories
 - Menu Animations
@@ -30,6 +21,9 @@ A template for creating extensions, modules, and player modules for **VividV2**.
 
 ## Overview
 
+<details>
+<summary>Expand Overview</summary>
+
 This project demonstrates how to create:
 
 - Modules
@@ -38,19 +32,29 @@ This project demonstrates how to create:
 - Extension Manifests
 - Variable systems (Float, Int, Bool, String, Color, Keybind)
 
+</details>
+
 ---
 
 # Modules
 
 ## Example Module
 
+<details>
+<summary>Expand Example Module</summary>
+
 ```csharp
 internal class ExampleMod : Module
 ```
 
+</details>
+
 ---
 
 ## Constructor
+
+<details>
+<summary>Expand Constructor</summary>
 
 ```csharp
 // to initialize the module do this
@@ -64,9 +68,14 @@ internal class ExampleMod : Module
 public ExampleMod() : base("Example", Categories.Example, true)
 ```
 
+</details>
+
 ---
 
 ## Variables
+
+<details>
+<summary>Expand Variables</summary>
 
 ### Adding Variables
 
@@ -95,10 +104,6 @@ GetVariable<FloatVariable>("Example Variable");
 ### Bool Variable
 
 ```csharp
-// Bool Variable
-// First parameter is the name.
-// Second parameter is the default value.
-
 BoolVariable boolVariable = new BoolVariable("Bool Variable", true);
 ```
 
@@ -107,12 +112,6 @@ BoolVariable boolVariable = new BoolVariable("Bool Variable", true);
 ### Int Variable
 
 ```csharp
-// Int Variable
-// First parameter is the name.
-// Second parameter is the default value.
-// Third parameter is the minimum value.
-// Fourth parameter is the maximum value.
-
 IntVariable intVariable = new IntVariable("Int Variable", 5, 0, 10);
 ```
 
@@ -121,12 +120,6 @@ IntVariable intVariable = new IntVariable("Int Variable", 5, 0, 10);
 ### Float Variable
 
 ```csharp
-// Float Variable
-// First parameter is the name.
-// Second parameter is the default value.
-// Third parameter is the minimum value.
-// Fourth parameter is the maximum value.
-
 FloatVariable floatVariable = new FloatVariable("Float Variable", 1.0f, 0.0f, 10.0f);
 ```
 
@@ -135,11 +128,6 @@ FloatVariable floatVariable = new FloatVariable("Float Variable", 1.0f, 0.0f, 10
 ### String Variable
 
 ```csharp
-// String Variable
-// First parameter is the name.
-// Second parameter is an array of options for the variable.
-// The default value will be the first option in the array.
-
 StringVariable stringVariable = new StringVariable("String Variable", new string[] { "Option 1", "Option 2", "Option 3" });
 ```
 
@@ -148,16 +136,17 @@ StringVariable stringVariable = new StringVariable("String Variable", new string
 ### Color Variable
 
 ```csharp
-// Color Variable
-// First parameter is the name.
-// Second parameter is the default value using UnityEngine.Color.
-
 ColorVariable colorVariable = new ColorVariable("Color Variable", new UnityEngine.Color(1f, 0f, 0f));
 ```
+
+</details>
 
 ---
 
 ## Keybind Variables
+
+<details>
+<summary>Expand Keybind Variables</summary>
 
 ### Overview
 
@@ -179,20 +168,6 @@ KeybindVariable keybindVariable = new KeybindVariable("Keybind Variable", Keybin
 ```csharp
 // Lets the user select a button type only.
 // The selected button will work on BOTH hands.
-//
-// Example:
-// - Primary
-// - Secondary
-// - Grip
-// - Trigger
-//
-// Pressed will return true if the selected button
-// is pressed on either the left OR right hand.
-//
-// Example:
-// If Button = Trigger:
-// - Left Trigger pressed  -> true
-// - Right Trigger pressed -> true
 ```
 
 ---
@@ -204,20 +179,7 @@ KeybindVariable keybindVariable2 = new KeybindVariable("Keybind Variable 2", Key
 ```
 
 ```csharp
-// Lets the user select BOTH a hand and a button.
-//
-// Example values:
-// - Left Trigger
-// - Right Grip
-// - Left Primary
-//
-// Pressed will only return true if the selected
-// hand AND button are pressed.
-//
-// Example:
-// If Value = Right Grip:
-// - Right Grip pressed -> true
-// - Left Grip pressed  -> false
+// Requires specific hand + button match
 ```
 
 ---
@@ -229,21 +191,18 @@ KeybindVariable joystickVariable = new KeybindVariable("Joystick Variable", Keyb
 ```
 
 ```csharp
-// Lets the user select either the left or right joystick.
-//
-// The button parameter is ignored for this type.
-//
-// Use JoystickValue to get the Vector2 input.
-//
-// Example:
 // JoystickValue.x = horizontal movement
 // JoystickValue.y = vertical movement
 ```
 
+</details>
+
 ---
 
-
 ## Module Lifecycle
+
+<details>
+<summary>Expand Module Lifecycle</summary>
 
 ```csharp
 public override void Update()
@@ -271,9 +230,14 @@ public override void OnEnable()
 }
 ```
 
+</details>
+
 ---
 
 ## Useful Methods
+
+<details>
+<summary>Expand Useful Methods</summary>
 
 ```csharp
 // SetEnabled -> enable/disable module
@@ -281,9 +245,14 @@ public override void OnEnable()
 // IMPORTANT: use VividV2.Core.Logger not BepInEx logger
 ```
 
+</details>
+
 ---
 
 # Player Modules
+
+<details>
+<summary>Expand Player Modules</summary>
 
 ## TeleportToPlayer
 
@@ -292,7 +261,6 @@ internal class TeleportToPlayer : PlayerModule
 ```
 
 ```csharp
-// Player modules are per-player modules
 public TeleportToPlayer() : base("Teleport To", false)
 ```
 
@@ -307,9 +275,14 @@ public override void OnEnable()
 }
 ```
 
+</details>
+
 ---
 
 # Categories
+
+<details>
+<summary>Expand Categories</summary>
 
 ```csharp
 internal class Categories
@@ -320,9 +293,14 @@ public static readonly Category Example = Category.Register("Example Category");
 public static readonly Category Visual = Category.Register("Visual");
 ```
 
+</details>
+
 ---
 
 # Menu Animations
+
+<details>
+<summary>Expand Menu Animations</summary>
 
 VividV2 supports custom menu animations for open and close transitions.
 
@@ -374,9 +352,14 @@ public class ExampleOpenAnimation : MenuAnimation
 - target represents the UI transform state
 - Modify scale, rotation, or position
 
+</details>
+
 ---
 
 # Extension Manifest
+
+<details>
+<summary>Expand Extension Manifest</summary>
 
 ```csharp
 internal class Manifest : ExtensionManifest
@@ -386,4 +369,6 @@ internal class Manifest : ExtensionManifest
 public override string Name { get; set; } = "VividExtension";
 public override string Version { get; set; } = "1.0.0";
 ```
+
+</details>
 
