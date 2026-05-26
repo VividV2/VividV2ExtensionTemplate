@@ -19,7 +19,6 @@ A template for creating extensions, modules, and player modules for **VividV2**.
     - Getting Variables
   - Variable Types
   - Keybind Variables
-  - Adding Variables (Registration)
   - Module Lifecycle
   - Useful Methods
 - Player Modules
@@ -85,6 +84,7 @@ AddVariable(exampleVariable);
 
 ```csharp
 // WARNING: the name is case sensitive
+// Make sure to use the correct type when getting the variable, otherwise it will return null
 GetVariable<FloatVariable>("Example Variable");
 ```
 
@@ -242,20 +242,6 @@ KeybindVariable joystickVariable = new KeybindVariable("Joystick Variable", Keyb
 
 ---
 
-## Adding Variables (Registration)
-
-```csharp
-AddVariable(boolVariable);
-AddVariable(intVariable);
-AddVariable(floatVariable);
-AddVariable(stringVariable);
-AddVariable(colorVariable);
-AddVariable(keybindVariable);
-AddVariable(keybindVariable2);
-AddVariable(joystickVariable);
-```
-
----
 
 ## Module Lifecycle
 
