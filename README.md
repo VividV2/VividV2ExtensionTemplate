@@ -8,7 +8,7 @@ A template for creating extensions, modules, and player modules for **VividV2**.
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
 - Overview
 - Modules
@@ -24,7 +24,7 @@ A template for creating extensions, modules, and player modules for **VividV2**.
 
 ---
 
-## 📌 Overview
+## Overview
 
 This project demonstrates how to create:
 
@@ -36,7 +36,7 @@ This project demonstrates how to create:
 
 ---
 
-# 🧩 Modules
+# Modules
 
 ## Example Module
 
@@ -263,7 +263,7 @@ public override void OnEnable()
 
 ---
 
-# 👤 Player Modules
+# Player Modules
 
 ## TeleportToPlayer
 
@@ -289,7 +289,7 @@ public override void OnEnable()
 
 ---
 
-# 🏷 Categories
+# Categories
 
 ```csharp
 internal class Categories
@@ -299,6 +299,65 @@ internal class Categories
 public static readonly Category Example = Category.Register("Example Category");
 public static readonly Category Visual = Category.Register("Visual");
 ```
+
+---
+
+# Menu Animations
+
+<details>
+<summary>Expand MenuAnimation system</summary>
+
+VividV2 supports custom menu animations for open/close transitions.
+
+---
+
+## Close Animation Example
+
+```csharp
+public class ExampleCloseAnimation : MenuAnimation
+{
+    public ExampleCloseAnimation()
+        : base("Shrink", MenuAnimationType.MenuClose)
+    {
+    }
+
+    public override MenuAnimator Animate(float AnimationPercentage, MenuAnimator target)
+    {
+        target.Scale = target.Scale - (target.Scale * (AnimationPercentage));
+        return target;
+    }
+}
+```
+
+---
+
+## Open Animation Example
+
+```csharp
+public class ExampleOpenAnimation : MenuAnimation
+{
+    public ExampleOpenAnimation()
+        : base("ExampleOpenAnimation", MenuAnimationType.MenuOpen)
+    {
+    }
+
+    public override MenuAnimator Animate(float AnimationPercentage, MenuAnimator target)
+    {
+        target.Scale = target.Scale - (target.Scale * (1 - AnimationPercentage));
+        return target;
+    }
+}
+```
+
+---
+
+### Animation Notes
+
+- `AnimationPercentage` goes from 0 → 1
+- `target` represents the UI transform state
+- Modify scale, rotation, or position
+
+</details>
 
 ---
 
